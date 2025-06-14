@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Budget Analysis</h1>
+        
+        <!-- Input Section -->
+        <div class="input-section">
+            <input type="text" id="description" placeholder="Description">
+            <input type="number" id="amount" placeholder="Amount">
+            <select id="category">
+                <option value="Salary">Salary</option>
+                <option value="Food">Food</option>
+                <option value="Travel">Travel</option>
+                <option value="Others">Others</option>
+            </select>
+            <button id="add-btn">Add</button>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary">
+            <p>Total Income: ₹<span id="total-income">0</span></p>
+            <p>Total Expense: ₹<span id="total-expense">0</span></p>
+            <p>Net Balance: ₹<span id="net-balance">0</span></p>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+            <button id="theme-toggle">Toggle Dark Mode</button>
+        </div>
+
+        <!-- Transaction List -->
+        <div class="transaction-list">
+            <h2>Transactions</h2>
+            <ul id="transaction-list"></ul>
+        </div>
+
+        <!-- Chart Section -->
+        <canvas id="budget-chart" width="400" height="200"></canvas>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
