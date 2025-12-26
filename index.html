@@ -3,47 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Analysis</title>
+    <title>AI-Budget Analytics | Final Year Project</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Budget Analysis</h1>
-        
-        <!-- Input Section -->
-        <div class="input-section">
-            <input type="text" id="description" placeholder="Description">
-            <input type="number" id="amount" placeholder="Amount">
-            <select id="category">
-                <option value="Salary">Salary</option>
-                <option value="Food">Food</option>
-                <option value="Travel">Travel</option>
-                <option value="Others">Others</option>
-            </select>
-            <button id="add-btn">Add</button>
-        </div>
+    <div class="app-container">
+        <header>
+            <h1>Budget Analysis Dashboard</h1>
+            <div class="header-actions">
+                <button id="theme-toggle" class="btn-icon">🌓</button>
+                <button id="reset-btn" class="btn-danger">Reset Project</button>
+            </div>
+        </header>
 
-        <!-- Summary Section -->
-        <div class="summary">
-            <p>Total Income: ₹<span id="total-income">0</span></p>
-            <p>Total Expense: ₹<span id="total-expense">0</span></p>
-            <p>Net Balance: ₹<span id="net-balance">0</span></p>
-        </div>
+        <section class="kpi-grid">
+            <div class="card income">
+                <h3>Total Income</h3>
+                <p id="total-income">₹0.00</p>
+            </div>
+            <div class="card expense">
+                <h3>Total Expense</h3>
+                <p id="total-expense">₹0.00</p>
+            </div>
+            <div class="card balance" id="balance-card">
+                <h3>Net Balance</h3>
+                <p id="net-balance">₹0.00</p>
+            </div>
+        </section>
 
-        <!-- Actions -->
-        <div class="actions">
-            <button id="theme-toggle">Toggle Dark Mode</button>
-        </div>
+        <main class="main-grid">
+            <div class="data-entry">
+                <div class="input-card">
+                    <h3>Add New Record</h3>
+                    <div class="form-group">
+                        <input type="text" id="description" placeholder="Entry Name (e.g., Server Cost)">
+                        <input type="number" id="amount" placeholder="Amount (₹)">
+                        <select id="category">
+                            <option value="Salary">Salary/Revenue</option>
+                            <option value="Equipment">Hardware/Equipment</option>
+                            <option value="Software">Software/Subscriptions</option>
+                            <option value="Travel">Travel/Logistics</option>
+                            <option value="Others">Miscellaneous</option>
+                        </select>
+                        <select id="type">
+                            <option value="income">Credit (+)</option>
+                            <option value="expense">Debit (-)</option>
+                        </select>
+                        <button id="add-btn">Add to Ledger</button>
+                    </div>
+                </div>
 
-        <!-- Transaction List -->
-        <div class="transaction-list">
-            <h2>Transactions</h2>
-            <ul id="transaction-list"></ul>
-        </div>
+                <div class="history-card">
+                    <h3>Transaction Ledger</h3>
+                    <div class="list-container">
+                        <ul id="transaction-list"></ul>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Chart Section -->
-        <canvas id="budget-chart" width="400" height="200"></canvas>
+            <div class="analytics">
+                <div class="chart-card">
+                    <h3>Spending Composition</h3>
+                    <div class="chart-container">
+                        <canvas id="budget-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
     <script src="app.js"></script>
 </body>
